@@ -7,108 +7,135 @@
   <title>AniReal - Home</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
       text-align: center;
     }
 
-    .menu-btn {
-      position: fixed;
-      top: 10px;
-      right: 15px;
+    /* 🔹 Navbar Menu */
+    .nav-bar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
       background: transparent;
       border: none;
+      color: white;
       font-size: 26px;
-      color: white;
       cursor: pointer;
-      z-index: 999;
     }
 
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 998;
-      top: 0;
+    .dropdown-content {
+      display: none;
+      position: absolute;
       right: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
+      background-color: #1f1f1f;
+      min-width: 160px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+      z-index: 1;
+      text-align: left;
     }
 
-    .side-menu a {
-      padding: 12px 25px;
-      text-decoration: none;
-      font-size: 18px;
+    .dropdown-content a {
       color: white;
+      padding: 12px 16px;
+      text-decoration: none;
       display: block;
+      white-space: nowrap;
     }
 
-    .side-menu a:hover {
+    .dropdown-content a:hover {
       background-color: #333;
     }
 
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* 🔹 Hero Section */
     .hero-section {
-      padding: 100px 20px 50px;
+      padding: 80px 20px 60px;
     }
 
-    h1 {
-      font-size: 36px;
+    .hero-section h1 {
+      font-size: 42px;
       margin-bottom: 15px;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    p {
+    .hero-section p {
       font-size: 18px;
       max-width: 600px;
-      margin: 10px auto;
+      margin: 15px auto;
+      color: #dcdcdc;
     }
 
     .btn-start {
       margin-top: 30px;
-      background-color: #00c8ff;
+      background: #00c8ff;
       color: black;
-      padding: 12px 25px;
+      padding: 14px 30px;
       border: none;
       border-radius: 8px;
       font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
+      transition: 0.3s ease;
     }
 
     .btn-start:hover {
-      background-color: #0099cc;
+      background: #0099cc;
+    }
+
+    /* 🔹 Responsive */
+    @media (max-width: 600px) {
+      .hero-section h1 {
+        font-size: 32px;
+      }
+      .btn-start {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <button class="menu-btn" onclick="openMenu()">☰</button>
-
-  <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" onclick="closeMenu()">✖ Close</a>
-    <a href="how-to-use.html">📘 How to Use</a>
-    <a href="redirect.html">🔗 Redirect Tool</a>
-    <a href="https://t.me/AniReal_Anime_Zone" target="_blank">📢 Channel</a>
-    <a href="https://t.me/AniReal_File_Store_Bot" target="_blank">🤖 File Bot</a>
+  <!-- 🔹 Top Dropdown Menu -->
+  <div class="nav-bar">
+    <div class="dropdown">
+      <button class="dropbtn">☰</button>
+      <div class="dropdown-content">
+        <a href="index.html">🏠 Home</a>
+        <a href="how-to-use.html">📘 How to Use</a>
+        <a href="redirect.html">🔗 Redirect Tool</a>
+        <a href="https://t.me/AniReal_Anime_Zone" target="_blank">📢 Channel</a>
+        <a href="https://t.me/AniReal_File_Store_Bot" target="_blank">🤖 File Bot</a>
+      </div>
+    </div>
   </div>
 
+  <!-- 🔹 Main Section -->
   <div class="hero-section">
     <h1>Welcome to AniReal</h1>
-    <p>Use our redirect tool to access files instantly from our Telegram channels.</p>
+    <p>Enjoy a smooth and secure experience while accessing your favorite Anime files through our Redirect Tool. Powered by Telegram.</p>
     <a href="redirect.html">
-      <button class="btn-start">Try Redirect Tool 🚀</button>
+      <button class="btn-start">🚀 Start Redirecting</button>
     </a>
   </div>
 
-  <script>
-    function openMenu() {
-      document.getElementById("sideMenu").style.width = "250px";
-    }
-    function closeMenu() {
-      document.getElementById("sideMenu").style.width = "0";
-    }
-  </script>
 </body>
 </html>
