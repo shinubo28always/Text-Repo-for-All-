@@ -1,0 +1,126 @@
+<!-- #-----redirect.html (REDIRECTING PAGE)----- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1f1f1f, #121212);
+      color: white;
+      text-align: center;
+    }
+
+    .countdown-box {
+      background: #1f1f1f;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    }
+
+    .circle-timer {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #1f1f1f;
+      border: 4px solid #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin: 20px auto;
+    }
+
+    .dot-animate::after {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+
+    @keyframes dots {
+      0%   { content: ''; }
+      33%  { content: '.'; }
+      66%  { content: '..'; }
+      100% { content: '...'; }
+    }
+
+    .poster-box {
+      background: #dcdcdc;
+      padding: 12px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0, 198, 255, 0.2);
+    }
+
+    .caption {
+      font-weight: bold;
+      font-size: 16px;
+      color: black;
+    }
+
+    .button-image {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #000;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="countdown-box">
+    <h2>YOUR LINK IS ALMOST READY.</h2>
+    <div id="timer" class="circle-timer">3</div>
+    <p style="font-weight: bold; color: #d9d9d9; font-size: 20px;">
+      🔗 Redirecting Your Link<span class="dot-animate"></span>
+    </p>
+  </div>
+
+  <div class="poster-box">
+    <p class="caption">🔥 Black Clover (S-02) Hindi Dubbed 🍁<br>🔰 Click Image & Download! 🔰</p>
+    <a href="https://t.me/+iQgEQvJrFl0wYmU1" target="_blank">
+      <img src="https://envs.sh/ew_.jpg" alt="Download" class="button-image" />
+    </a>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
+    }
+
+    let countdown = 3;
+    const timer = document.getElementById('timer');
+    let urlParam = getQueryParam('url');
+    let startParam = getQueryParam('start');
+    let redirectTo = "";
+
+    if (urlParam) {
+      redirectTo = decodeURIComponent(urlParam.trim());
+    } else if (startParam) {
+      redirectTo = "https://t.me/AniReal_File_Store_Bot?start=" + encodeURIComponent(startParam.trim());
+    }
+
+    const interval = setInterval(() => {
+      countdown--;
+      timer.textContent = countdown;
+      if (countdown <= 0) {
+        clearInterval(interval);
+        if (redirectTo) window.location.href = redirectTo;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
