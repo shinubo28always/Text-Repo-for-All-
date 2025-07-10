@@ -1,173 +1,114 @@
+<!-- #-----index.html (HOME PAGE)----- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AniReal - Redirecting...</title>
+  <title>AniReal - Home</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #00bcd4, #0288d1);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
       text-align: center;
-      color: #111;
     }
 
-    .top-banner {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .countdown-box {
-      background: white;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 12px;
-      width: 83%;
-      max-width: 500px;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
-      border: 2px solid #000;
-    }
-
-    .circle-timer {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: #fff;
-      border: 4px solid #000;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 36px;
-      font-weight: bold;
-      margin: 20px auto;
-    }
-
-    .dot-animate::after {
-      content: '';
-      display: inline-block;
-      width: 1em;
-      text-align: left;
-      animation: dots 3s steps(3, end) infinite;
-    }
-
-    @keyframes dots {
-      0%   { content: ''; }
-      33%  { content: '.'; }
-      66%  { content: '..'; }
-      100% { content: '...'; }
-    }
-
-    .poster-box {
-      background: white;
-      padding: 10px 10px 15px 10px;
-      border-radius: 12px;
-      width: 91%;
-      max-width: 500px;
-      margin: 20px auto;
-      box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
-      border: 2px solid #000;
-    }
-
-    .caption {
-      font-weight: bold;
-      font-size: 16px;
-      padding: 8px 10px 6px 10px;
-      text-align: center;
-      color: #111;
-      line-height: 1.5;
-    }
-
-    .caption img {
-      vertical-align: middle;
-      margin-right: 6px;
-      width: 22px;
-      height: 22px;
-    }
-
-    .button-image {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto;
+    .menu-btn {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 26px;
+      color: white;
       cursor: pointer;
-      transition: opacity 0.3s ease;
-      border: 2px solid #000;
+      z-index: 999;
     }
 
-    .button-image:hover {
-      opacity: 0.9;
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 998;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+    }
+
+    .side-menu a {
+      padding: 12px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+
+    .side-menu a:hover {
+      background-color: #333;
+    }
+
+    .hero-section {
+      padding: 100px 20px 50px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    .btn-start {
+      margin-top: 30px;
+      background-color: #00c8ff;
+      color: black;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .btn-start:hover {
+      background-color: #0099cc;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔹 Banner -->
-  <img src="https://envs.sh/tXT.jpg" alt="AniReal Banner" class="top-banner" />
+  <button class="menu-btn" onclick="openMenu()">☰</button>
 
-  <!-- 🔹 Countdown Section -->
-  <div class="countdown-box">
-    <h2>YOUR LINK IS ALMOST READY.</h2>
-    <div id="timer" class="circle-timer">3</div>
-    <p style="font-weight: bold; color: #555; font-size: 20px;">
-      🔗 Redirecting Your Link<span class="dot-animate"></span>
-    </p>
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" onclick="closeMenu()">✖ Close</a>
+    <a href="how-to-use.html">📘 How to Use</a>
+    <a href="redirect.html">🔗 Redirect Tool</a>
+    <a href="https://t.me/AniReal_Anime_Zone" target="_blank">📢 Channel</a>
+    <a href="https://t.me/AniReal_File_Store_Bot" target="_blank">🤖 File Bot</a>
   </div>
 
-  <!-- 🔹 Poster Box -->
-  <div class="poster-box">
-    <p class="caption">
-      <img src="https://media.tenor.com/n9y0c4sF0VsAAAAi/fire-flame.gif" alt="fire" />
-      "The Shiunji Family Children" Watch in Hindi Dub 🍁  
-      <br>
-      🔰 <u>Click the Image</u> 🔰
-    </p>
-    <a href="https://t.me/+H-jtiyZXqS00M2Vl" target="_blank" rel="noopener noreferrer">
-      <img src="https://envs.sh/t-n.jpg" alt="Watch Now" class="button-image" />
+  <div class="hero-section">
+    <h1>Welcome to AniReal</h1>
+    <p>Use our redirect tool to access files instantly from our Telegram channels.</p>
+    <a href="redirect.html">
+      <button class="btn-start">Try Redirect Tool 🚀</button>
     </a>
   </div>
 
-  <!-- 🔹 JS Logic -->
   <script>
-    function getQueryParam(param) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(param);
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
     }
-
-    let countdown = 3;
-    const timer = document.getElementById('timer');
-    let startParam = getQueryParam('start');
-    let urlParam = getQueryParam('url');
-    let autoRedirectURL = "";
-
-    if (urlParam) {
-      try {
-        urlParam = decodeURIComponent(urlParam.trim());
-        autoRedirectURL = urlParam;
-      } catch (e) {}
-    } else if (startParam) {
-      try {
-        startParam = decodeURIComponent(startParam.trim());
-        autoRedirectURL = "https://t.me/AniReal_File_Store_Bot?start=" + encodeURIComponent(startParam);
-      } catch (e) {}
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
     }
-
-    const interval = setInterval(() => {
-      countdown--;
-      timer.textContent = countdown;
-      if (countdown <= 0) {
-        clearInterval(interval);
-        if (autoRedirectURL) {
-          window.location.href = autoRedirectURL;
-        }
-      }
-    }, 1000);
   </script>
-
 </body>
 </html>
