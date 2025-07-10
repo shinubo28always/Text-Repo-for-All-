@@ -1,4 +1,3 @@
-<!-- #-----redirect.html (UPDATED WITH BANNER + MENU)----- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,54 +13,53 @@
       text-align: center;
     }
 
-    /* 🔹 Menu button (3 lines) */
-    .menu-btn {
-      position: fixed;
-      top: 10px;
-      left: 15px;
-      background: transparent;
-      border: none;
-      font-size: 26px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    /* 🔹 Sidebar */
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-    }
-
-    .side-menu a {
-      padding: 14px 25px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-    }
-
-    .side-menu a:hover {
-      background-color: #333;
-    }
-
-    /* 🔹 Banner */
+    /* 🔹 Top banner */
     .top-banner {
       width: 100%;
       height: auto;
       display: block;
-      margin-top: 0;
     }
 
-    /* 🔹 Countdown section */
+    /* 🔹 Menu Button */
+    .menu-container {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    .menu-btn {
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-options {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #222;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .menu-options a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      font-size: 16px;
+    }
+
+    .menu-options a:hover {
+      background-color: #333;
+    }
+
+    /* 🔹 Countdown Section */
     .countdown-box {
       background: #1f1f1f;
       margin: 30px auto;
@@ -128,22 +126,20 @@
 </head>
 <body>
 
-  <!-- 🔹 Menu Button -->
-  <button class="menu-btn" onclick="openMenu()">☰</button>
-
-  <!-- 🔹 Sidebar Menu -->
-  <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" onclick="closeMenu()">✖ Close</a>
-    <a href="index.html">🏠 Home</a>
-    <a href="how-to-use.html">📘 How to Use</a>
-    <a href="https://t.me/AniReal_Anime_Zone" target="_blank">📢 Channel</a>
-    <a href="https://t.me/AniReal_File_Store_Bot" target="_blank">🤖 File Bot</a>
+  <!-- 🔹 Menu -->
+  <div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div id="menuOptions" class="menu-options">
+      <a href="index.html">🏠 Home</a>
+      <a href="how-to-use.html">📘 How to Use</a>
+      <a href="https://t.me/AniReal_File_Store_Bot" target="_blank">🤖 File Bot</a>
+    </div>
   </div>
 
-  <!-- 🔹 Top Banner -->
+  <!-- 🔹 Banner -->
   <img src="https://envs.sh/tXT.jpg" alt="AniReal Banner" class="top-banner" />
 
-  <!-- 🔹 Countdown Section -->
+  <!-- 🔹 Countdown Box -->
   <div class="countdown-box">
     <h2>YOUR LINK IS ALMOST READY.</h2>
     <div id="timer" class="circle-timer">3</div>
@@ -152,7 +148,7 @@
     </p>
   </div>
 
-  <!-- 🔹 Poster Section -->
+  <!-- 🔹 Poster Box -->
   <div class="poster-box">
     <p class="caption">🔥 Black Clover (S-02) Hindi Dubbed 🍁<br>🔰 Click Image & Download! 🔰</p>
     <a href="https://t.me/+iQgEQvJrFl0wYmU1" target="_blank">
@@ -160,16 +156,23 @@
     </a>
   </div>
 
-  <!-- 🔹 JavaScript for redirect and menu -->
+  <!-- 🔹 JS -->
   <script>
-    function openMenu() {
-      document.getElementById("sideMenu").style.width = "250px";
+    // Dropdown toggle
+    function toggleMenu() {
+      const menu = document.getElementById("menuOptions");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    function closeMenu() {
-      document.getElementById("sideMenu").style.width = "0";
-    }
+    // Auto hide on click
+    document.addEventListener('click', function(event) {
+      const isClickInside = document.querySelector('.menu-container').contains(event.target);
+      if (!isClickInside) {
+        document.getElementById("menuOptions").style.display = "none";
+      }
+    });
 
+    // Redirect Logic
     function getQueryParam(param) {
       const params = new URLSearchParams(window.location.search);
       return params.get(param);
