@@ -47,13 +47,16 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
-    .menu-options a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 8px 15px;
-      font-size: 16px;
-    }
+.menu-options a {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between emoji and text */
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  white-space: nowrap; /* keep emoji and text in one line */
+}
 
     .menu-options a:hover {
       background-color: #333;
