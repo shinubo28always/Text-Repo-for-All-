@@ -1,20 +1,19 @@
-<!-- #-----index.html (HOME PAGE)----- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AniReal - Home</title>
+  <title>AniReal Redirect Tool</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      background: linear-gradient(135deg, #1f1f1f, #121212);
       color: white;
       text-align: center;
     }
 
-    /* 🔹 Navbar Menu */
+    /* 🔹 Menu */
     .nav-bar {
       display: flex;
       justify-content: flex-end;
@@ -52,7 +51,6 @@
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-      white-space: nowrap;
     }
 
     .dropdown-content a:hover {
@@ -63,28 +61,93 @@
       display: block;
     }
 
+    /* 🔹 Countdown Section */
+    .countdown-box {
+      background: #1f1f1f;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    }
+
+    .circle-timer {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #1f1f1f;
+      border: 4px solid #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin: 20px auto;
+    }
+
+    .dot-animate::after {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+
+    @keyframes dots {
+      0%   { content: ''; }
+      33%  { content: '.'; }
+      66%  { content: '..'; }
+      100% { content: '...'; }
+    }
+
+    .poster-box {
+      background: #dcdcdc;
+      padding: 12px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0, 198, 255, 0.2);
+    }
+
+    .caption {
+      font-weight: bold;
+      font-size: 16px;
+      color: black;
+    }
+
+    .button-image {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #000;
+      margin-top: 10px;
+    }
+
     /* 🔹 Hero Section */
     .hero-section {
       padding: 80px 20px 60px;
     }
 
     .hero-section h1 {
-      font-size: 42px;
+      font-size: 30px;
       margin-bottom: 15px;
       background: linear-gradient(to right, #00c9ff, #92fe9d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero-section p {
-      font-size: 18px;
+    .hero-section ul {
+      list-style: none;
+      padding: 0;
+      font-size: 17px;
+      margin: 20px auto;
       max-width: 600px;
-      margin: 15px auto;
-      color: #dcdcdc;
+      line-height: 1.6;
     }
 
     .btn-start {
-      margin-top: 30px;
+      margin: 20px 10px;
       background: #00c8ff;
       color: black;
       padding: 14px 30px;
@@ -100,21 +163,16 @@
       background: #0099cc;
     }
 
-    /* 🔹 Responsive */
     @media (max-width: 600px) {
       .hero-section h1 {
-        font-size: 32px;
-      }
-      .btn-start {
-        padding: 12px 20px;
-        font-size: 16px;
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔹 Top Dropdown Menu -->
+  <!-- 🔹 Menu -->
   <div class="nav-bar">
     <div class="dropdown">
       <button class="dropbtn">☰</button>
@@ -127,48 +185,98 @@
     </div>
   </div>
 
-  <!-- 🔹 Main Section -->
-  <div class="hero-section">
-  <h1 style="font-size: 28px; text-align: center;">Welcome to AniReal - Redirecting</h1>
-  
-  <ul style="list-style: none; padding: 0; font-size: 17px; margin: 20px auto; max-width: 600px; line-height: 1.6;">
-    <li>🔒 Instantly access your Telegram file links securely & cleanly</li>
-    <li>⚡ Fast, Safe, and Ad-free redirection in just seconds</li>
-    <li>💎 Premium-level user experience with smooth performance</li>
-  </ul>
+  <!-- 🔹 Conditional Content -->
+  <div id="mainContent"></div>
 
-  <!-- 🔥 Feature Highlights -->
-  <div style="background: #1e1e1e; border-radius: 12px; padding: 20px; margin: 30px auto; max-width: 650px; box-shadow: 0 0 10px rgba(0,198,255,0.2); font-size: 15.5px;">
-    <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 17px;">🚀 Key Features:</p>
-    <ul style="text-align: left; line-height: 1.6; padding-left: 20px;">
-      <li>✅ Auto countdown and redirect in 3 seconds</li>
-      <li>✅ Responsive design for mobile and desktop</li>
-      <li>✅ Modern gradient background</li>
-      <li>✅ Countdown animation with dot loader</li>
-      <li>✅ Stylish poster image box with caption</li>
-      <li>✅ 🔗 Supports:
-        <ul style="margin-top: 5px;">
-          <li>🔹 YouTube</li>
-          <li>🔹 Instagram</li>
-          <li>🔹 TikTok</li>
-          <li>🔹 Telegram Public Links!</li>
-          <li>🔹 Google Drive / Any Public Link 🔥</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <script>
+    function getQueryParam(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
+    }
 
-  <p style="margin-top: 20px; font-size: 16px;">
-    👇 To use this premium redirect tool, simply tap the button below:
-  </p>
+    const urlParam = getQueryParam('url');
+    const startParam = getQueryParam('start');
+    const mainContent = document.getElementById('mainContent');
 
-  <a href="redirect.html">
-    <button class="btn-start">🚀 Start Redirecting</button>
-  </a>
+    if (urlParam || startParam) {
+      // Redirect Page
+      let redirectTo = "";
+      if (urlParam) {
+        redirectTo = decodeURIComponent(urlParam.trim());
+      } else if (startParam) {
+        redirectTo = "https://t.me/AniReal_File_Store_Bot?start=" + encodeURIComponent(startParam.trim());
+      }
 
-  <br /><br />
+      mainContent.innerHTML = `
+        <img src="https://envs.sh/tXT.jpg" alt="AniReal Banner" style="width: 100%; max-height: 250px;" />
+        <div class="countdown-box">
+          <h2>YOUR LINK IS ALMOST READY.</h2>
+          <div id="timer" class="circle-timer">3</div>
+          <p style="font-weight: bold; color: #d9d9d9; font-size: 20px;">
+            🔗 Redirecting Your Link<span class="dot-animate"></span>
+          </p>
+        </div>
+        <div class="poster-box">
+          <p class="caption">🔥 Black Clover (S-02) Hindi Dubbed 🍁<br>🔰 Click Image & Download! 🔰</p>
+          <a href="${redirectTo}" target="_blank">
+            <img src="https://envs.sh/ew_.jpg" alt="Download" class="button-image" />
+          </a>
+        </div>
+      `;
 
-  <a href="how-to-use.html">
-    <button class="btn-start" style="background: #fff; color: black;">📘 How to Use</button>
-  </a>
-</div>
+      let countdown = 3;
+      const timerInterval = setInterval(() => {
+        document.getElementById('timer').textContent = --countdown;
+        if (countdown <= 0) {
+          clearInterval(timerInterval);
+          if (redirectTo) window.location.href = redirectTo;
+        }
+      }, 1000);
+    } else {
+      // Home Page
+      mainContent.innerHTML = `
+        <div class="hero-section">
+          <h1>Welcome to AniReal - Redirecting</h1>
+          <ul>
+            <li>🔒 Secure & clean Telegram file link redirection</li>
+            <li>⚡ Fast, Safe, and Ad-free redirection in just seconds</li>
+            <li>💎 Premium-level user experience</li>
+          </ul>
+
+          <div style="background: #1e1e1e; border-radius: 12px; padding: 20px; margin: 30px auto; max-width: 650px; box-shadow: 0 0 10px rgba(0,198,255,0.2); font-size: 15.5px;">
+            <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 17px;">🚀 Key Features:</p>
+            <ul style="text-align: left; line-height: 1.6; padding-left: 20px;">
+              <li>✅ Auto countdown and redirect in 3 seconds</li>
+              <li>✅ Responsive design for mobile and desktop</li>
+              <li>✅ Modern gradient background</li>
+              <li>✅ Countdown animation with dot loader</li>
+              <li>✅ Stylish poster image box with caption</li>
+              <li>✅ 🔗 Supports:
+                <ul style="margin-top: 5px;">
+                  <li>🔹 YouTube</li>
+                  <li>🔹 Instagram</li>
+                  <li>🔹 TikTok</li>
+                  <li>🔹 Telegram Public Links!</li>
+                  <li>🔹 Google Drive / Any Public Link 🔥</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 20px; font-size: 16px;">
+            👇 To use this premium redirect tool, simply tap the button below:
+          </p>
+
+          <a href="?url=https://t.me/AniReal_Anime_Zone">
+            <button class="btn-start">🚀 Start Redirecting</button>
+          </a>
+          <a href="how-to-use.html">
+            <button class="btn-start" style="background: #fff; color: black;">📘 How to Use</button>
+          </a>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
