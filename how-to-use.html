@@ -1,0 +1,99 @@
+<!-- #-----how-to-use.html (HOW TO USE PAGE)----- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Use</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      font-size: 26px;
+      color: white;
+      background: transparent;
+      border: none;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+      z-index: 998;
+    }
+
+    .side-menu a {
+      padding: 14px 25px;
+      display: block;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .side-menu a:hover {
+      background-color: #444;
+    }
+
+    .section {
+      padding: 100px 20px 50px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 650px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="menu-btn" onclick="openMenu()">☰</button>
+
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" onclick="closeMenu()">✖ Close</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="redirect.html">🔗 Redirect Tool</a>
+  </div>
+
+  <div class="section">
+    <h1>How to Use</h1>
+    <p>🔹 Just copy any link from our Telegram channel<br>
+       🔹 Paste it in your browser or click directly<br>
+       🔹 You'll see a countdown, then get redirected to your file instantly.</p>
+  </div>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
+</body>
+</html>
